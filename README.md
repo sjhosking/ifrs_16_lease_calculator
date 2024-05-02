@@ -1,6 +1,6 @@
 IFRS 16 Lease Calculator
 
-This project calculates lease financials according to the International Financial Reporting Standard (IFRS) 16. It provides a flexible tool for estimating lease payments, present value, and Right-of-Use Asset (ROUA) balances.
+This project calculates lease financials according to the International Financial Reporting Standard (IFRS) 16. It provides a flexible tool for calculating lease payments, present value, and Right-of-Use Asset (ROUA) balances.
 
 Features:
 
