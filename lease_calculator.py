@@ -39,6 +39,7 @@ class lease_calculator:
         self.payments = {}
         self.frequency_mapping = {'D': {'days': 1}, 'W': {'weeks': 1}, 'M': {'months': 1}, 'Q': {'months': 3}, 'Y': {'years': 1}}
         self.end_mapping = {'D': {'days': num_periods}, 'W': {'weeks': num_periods}, 'M': {'months': num_periods}, 'Q': {'months': num_periods * 3}, 'Y': {'years': num_periods}}
+        increase_count = 0
         for period in range(1, num_periods + 1): 
             discount_days =  first_payment_date - contract_start_date    
             self.payments[period] = {
@@ -50,7 +51,9 @@ class lease_calculator:
             self.lease_payment_information['npv'] += round(payment_amount,2) / (1 + (discount_rate / 365)) ** discount_days.days
             
             if period_increase_frequency != 0 and period % period_increase_frequency == 0:
-                payment_amount = round(payment_amount * (1 + period_increase_rate),2)
+                payment_amount = round(payment_amount * (1 + period_increase_rate[increase_count]),2)
+                if len(period_increase_rate) - 1 > increase_count:
+                    increase_count += 1
         self.lease_payment_information['roua_open_balance'] = self.lease_payment_information['npv'] + roua_dismantling_costs + roua_direct_costs
     
     ''' Function creates a daily schedule of balances, including interest and depreciation calculations. Uses information from the payment schedule and lease information.'''
