@@ -3,9 +3,10 @@ from lease_calculator import lease_calculator
 import pandas as pd
 import streamlit as st
 
+st.title('IFRS Calculator')
 c1, c2, c3, c4 = st.columns(4)
 # Input parameter
-st.title('IFRS Calculator')
+
 
 with c1:
   contract_start_date = st.date_input("Contract Start Date", datetime.date(2021, 1, 1))
