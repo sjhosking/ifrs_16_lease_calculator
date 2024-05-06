@@ -6,26 +6,30 @@ import streamlit as st
 c1, c2, c3, c4 = st.columns(4)
 # Input parameter
 st.title('IFRS Calculator')
-first_payment_date = st.date_input("First Payment Date", datetime.date(2021, 1, 1))
+
 with c1:
   contract_start_date = st.date_input("Contract Start Date", datetime.date(2021, 1, 1))
-with c2:
+  first_payment_date = st.date_input("First Payment Date", datetime.date(2021, 1, 1))
   roua_start_date = st.date_input("ROUA Start Date", datetime.date(2021, 1, 1))
-payment_amount = st.number_input("Payment Amount",1000)
-period_increase_rate = st.number_input("Payment Increase Rate",0)
-period_increase_frequency = st.number_input("Payment Increase Frequency",)
-num_periods = st.number_input('Number of Periods',12)
-discount_rate = st.number_input("Discount Rate",0.05)
-payment_frequency = st.text_input("Payment Frequency",'M')
-dep_method = st.text_input("Depreciation Method",'S')
-dim_factor = st.number_input("Diminishing Value Dim Factor",2)
+  eofy = datetime.date(2021,6,30)
+with c2:
+  payment_amount = st.number_input("Payment Amount",1000)
+  period_increase_rate = st.number_input("Payment Increase Rate",0)
+  period_increase_frequency = st.number_input("Payment Increase Frequency",)
+  num_periods = st.number_input('Number of Periods',12)
 
-roua_direct_costs = st.number_input("ROUA Direct Costs",0)
-roua_dismantling_costs = st.number_input("ROUA Dismantling Costs",0)
+with c3:
+  discount_rate = st.number_input("Discount Rate",0.05)
+  payment_frequency = st.text_input("Payment Frequency",'M')
+  dep_method = st.text_input("Depreciation Method",'S')
+  dim_factor = st.number_input("Diminishing Value Dim Factor",2)
 
-period_start_end_date = [[st.date_input('Report Start Date',datetime.date(2021,6,1)), st.date_input('Report Start Date',datetime.date(2021,6,30))]]
-period_end_date = datetime.date(2021,12,31)
-eofy = datetime.date(2021,6,30)
+with c4:
+  roua_direct_costs = st.number_input("ROUA Direct Costs",0)
+  roua_dismantling_costs = st.number_input("ROUA Dismantling Costs",0)
+  period_start_end_date = [[st.date_input('Report Start Date',datetime.date(2021,6,1)), st.date_input('Report Start Date',datetime.date(2021,6,30))]]
+  period_end_date = datetime.date(2021,12,31)
+
 
 lease_info = lease_calculator(payment_amount, 
                                             period_increase_rate, 
