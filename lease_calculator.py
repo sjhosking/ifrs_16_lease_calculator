@@ -51,7 +51,7 @@ class lease_calculator:
             self.lease_payment_information['npv'] += round(payment_amount,2) / (1 + (discount_rate / 365)) ** discount_days.days
             
             if period_increase_frequency != 0 and period % period_increase_frequency == 0:
-                payment_amount = round(payment_amount * (1 + period_increase_rate[increase_count]),2)
+                payment_amount = round(payment_amount * (1 + period_increase_rate),2)
                 if len(period_increase_rate) - 1 > increase_count:
                     increase_count += 1
         self.lease_payment_information['roua_open_balance'] = self.lease_payment_information['npv'] + roua_dismantling_costs + roua_direct_costs
