@@ -12,7 +12,7 @@ with c1:
   contract_start_date = st.date_input("Contract Start Date", datetime.date(2021, 1, 1))
   first_payment_date = st.date_input("First Payment Date", datetime.date(2021, 1, 1))
   roua_start_date = st.date_input("ROUA Start Date", datetime.date(2021, 1, 1))
-  eofy = datetime.date(2021,6,30)
+  eofy = st.date_input("EOFY Date",datetime.date(2021,6,30))
 with c2:
   payment_amount = st.number_input("Payment Amount",1000)
   period_increase_rate = st.number_input("Payment Increase Rate",0)
