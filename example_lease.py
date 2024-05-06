@@ -15,7 +15,7 @@ with c1:
   eofy = st.date_input("EOFY Date",datetime.date(2021,6,30))
 with c2:
   payment_amount = st.number_input("Payment Amount",1000)
-  period_increase_rate = st.number_input("Payment Increase Rate",0)
+  period_increase_rate = st.number_input("Payment Increase Rate",0.00)
   period_increase_frequency = st.number_input("Payment Increase Frequency",0)
   num_periods = st.number_input('Number of Periods',12)
 
