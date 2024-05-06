@@ -52,8 +52,7 @@ class lease_calculator:
             
             if period_increase_frequency != 0 and period % period_increase_frequency == 0:
                 payment_amount = round(payment_amount * (1 + period_increase_rate),2)
-                if len(period_increase_rate) - 1 > increase_count:
-                    increase_count += 1
+               
         self.lease_payment_information['roua_open_balance'] = self.lease_payment_information['npv'] + roua_dismantling_costs + roua_direct_costs
     
     ''' Function creates a daily schedule of balances, including interest and depreciation calculations. Uses information from the payment schedule and lease information.'''
