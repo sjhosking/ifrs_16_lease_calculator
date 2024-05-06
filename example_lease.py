@@ -16,7 +16,7 @@ with c1:
 with c2:
   payment_amount = st.number_input("Payment Amount",1000)
   period_increase_rate = st.number_input("Payment Increase Rate",0)
-  period_increase_frequency = st.number_input("Payment Increase Frequency",)
+  period_increase_frequency = st.number_input("Payment Increase Frequency",0)
   num_periods = st.number_input('Number of Periods',12)
 
 with c3:
