@@ -3,11 +3,14 @@ from lease_calculator import lease_calculator
 import pandas as pd
 import streamlit as st
 
+c1, c2, c3, c4 = st.columns(4)
 # Input parameter
 st.title('IFRS Calculator')
 first_payment_date = st.date_input("First Payment Date", datetime.date(2021, 1, 1))
-contract_start_date = st.date_input("Contract Start Date", datetime.date(2021, 1, 1))
-roua_start_date = st.date_input("ROUA Start Date", datetime.date(2021, 1, 1))
+with c1:
+  contract_start_date = st.date_input("Contract Start Date", datetime.date(2021, 1, 1))
+with c2:
+  roua_start_date = st.date_input("ROUA Start Date", datetime.date(2021, 1, 1))
 payment_amount = st.number_input("Payment Amount",1000)
 period_increase_rate = st.number_input("Payment Increase Rate",0)
 period_increase_frequency = st.number_input("Payment Increase Frequency",)
