@@ -4,7 +4,7 @@ import pandas as pd
 import streamlit as st
 
 # Input parameter
-
+st.title('IFRS Calculator')
 first_payment_date = st.date_input("First Payment Date", datetime.date(2021, 1, 1))
 contract_start_date = st.date_input("Contract Start Date", datetime.date(2021, 1, 1))
 roua_start_date = st.date_input("ROUA Start Date", datetime.date(2021, 1, 1))
